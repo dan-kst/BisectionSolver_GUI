@@ -10,6 +10,7 @@ find_package(MPI REQUIRED)
 find_package(PkgConfig REQUIRED)
 
 add_library(lab7_logic
+    src/core/MpiWorker.cpp
     src/core/MpiSolver.cpp
     src/core/SequentialSolver.cpp
     src/core/BisectionSolver.cpp
