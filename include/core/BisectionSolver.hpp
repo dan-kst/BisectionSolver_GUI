@@ -20,14 +20,14 @@ struct Result {
  * @brief Pure mathematical implementation of the Bisection Method.
  */
 class BisectionSolver {
- private:
+private:
   [[nodiscard]] static auto TargetFunction(double arg_x) -> double;
 
- public:
-  [[nodiscard]] static auto Solve(const Logic::Params& task) -> Logic::Result;
+public:
+  [[nodiscard]] static auto Solve(const Logic::Params &task) -> Logic::Result;
 };
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(Params, a, b, epsilon);
-}  // namespace Core::Logic
+} // namespace Core::Logic
 
 #endif

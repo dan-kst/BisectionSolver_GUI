@@ -8,6 +8,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(MPI REQUIRED)
 find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTKMM REQUIRED IMPORTED_TARGET gtkmm-4.0)
 
 add_library(lab7_logic
     src/core/MpiWorker.cpp
@@ -25,5 +26,11 @@ target_link_libraries(lab7_logic
 
 add_executable(lab7_app
     src/gui/main.cpp
+    src/gui/MainWindow.cpp
 )
 
+target_link_libraries(lab7_app
+    PRIVATE
+    lab7_logic
+    PkgConfig::GTKMM
+)

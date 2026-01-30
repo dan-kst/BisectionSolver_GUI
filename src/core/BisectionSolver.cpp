@@ -7,7 +7,8 @@ namespace Core::Logic {
   return (arg_x * arg_x * arg_x) - arg_x - kConstantTerm;
 }
 
-[[nodiscard]] auto BisectionSolver::Solve(const Logic::Params& task) -> Logic::Result {
+[[nodiscard]] auto BisectionSolver::Solve(const Logic::Params &task)
+    -> Logic::Result {
   double param_a = task.a;
   double param_b = task.b;
   const double middle = 2.0;
@@ -39,4 +40,4 @@ namespace Core::Logic {
   return {.root = mid, .iterations = iterations, .converged = true};
 }
 
-}  // namespace Core::Logic
+} // namespace Core::Logic

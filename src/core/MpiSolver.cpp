@@ -1,8 +1,7 @@
 #include "core/MpiSolver.hpp"
 
 namespace Core::Strategy {
-[[nodiscard]] auto
-MpiSolver::Solve(const std::vector<Logic::Params> &inputs)
+[[nodiscard]] auto MpiSolver::Solve(const std::vector<Logic::Params> &inputs)
     -> std::vector<Logic::Result> {
 
   int world_size = 0;
@@ -39,8 +38,8 @@ MpiSolver::Solve(const std::vector<Logic::Params> &inputs)
 
     // Send the actual data block
     MPI_Send(&inputs[start_idx],
-             static_cast<int>(count * sizeof(Logic::Params)), MPI_BYTE,
-             i, 0, MPI_COMM_WORLD);
+             static_cast<int>(count * sizeof(Logic::Params)), MPI_BYTE, i, 0,
+             MPI_COMM_WORLD);
   }
 
   // Collect results
@@ -51,8 +50,8 @@ MpiSolver::Solve(const std::vector<Logic::Params> &inputs)
 
     // Use MPI_BYTE with the total size of the result block
     MPI_Recv(&all_results[start_idx],
-             static_cast<int>(current_chunk * sizeof(Logic::Result)),
-             MPI_BYTE, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+             static_cast<int>(current_chunk * sizeof(Logic::Result)), MPI_BYTE,
+             i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
   }
 
   return all_results;
