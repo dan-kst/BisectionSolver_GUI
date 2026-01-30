@@ -63,6 +63,3 @@ CMakeUserPresets.json
 
 ### Build directories ###
 build/
-
-### JSON-data
-*.json
