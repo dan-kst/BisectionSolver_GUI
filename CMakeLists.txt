@@ -15,6 +15,7 @@ pkg_check_modules(GTKMM REQUIRED IMPORTED_TARGET gtkmm-4.0)
 add_library(lab7_logic
     src/core/logic/MPIWorker.cpp
     src/core/logic/SolverBisection.cpp
+    src/core/logic/SolverFactory.cpp
     src/core/strategy/SolverMPI.cpp
     src/core/strategy/SolverSequential.cpp
 )
@@ -26,15 +27,16 @@ target_link_libraries(lab7_logic
     PRIVATE
     MPI::MPI_CXX
 )
+
+
 add_executable(lab7_app
     src/gui/main.cpp
     src/gui/MainWindow.cpp
 )
 target_include_directories( lab7_app PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/include/gui
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/core/strategy
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/core/logic
 )
-
 target_link_libraries(lab7_app
     PRIVATE
     lab7_logic

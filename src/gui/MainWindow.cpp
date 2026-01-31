@@ -65,25 +65,16 @@ void MainWindow::OnRunClicked() {
                                      .epsilon =
                                          std::stod(entry_eps_.get_text())};
     int count = std::stoi(entry_count_.get_text());
-    auto selected_idx = strategy_selector_.get_selected();
+    auto selected_type = static_cast<Core::Strategy::Type>(strategy_selector_.get_selected() + 1);
 
     run_button_.set_sensitive(false);
     spinner_.start();
     status_label_.set_text("Computing...");
 
-    worker_thread_ = std::jthread([this, entry_params, count, selected_idx]() {
+    worker_thread_ = std::jthread([this, entry_params, count, selected_type]() {
       std::vector<Core::Logic::Params> tasks(count, entry_params);
-      std::unique_ptr<Core::Strategy::ISolverStrategy> solver;
-      switch (selected_idx) {
-      case 0:
-        solver = std::make_unique<Core::Strategy::SolverSequential>();
-        break;
-      case 1:
-        solver = std::make_unique<Core::Strategy::SolverMPI>();
-        break;
-      default:
-        throw std::runtime_error("Select solver type.");
-      }
+      auto solver = Core::Logic::SolverFactory::create(selected_type);
+
       auto start = std::chrono::high_resolution_clock::now();
       auto results = solver->Solve(tasks);
       auto end = std::chrono::high_resolution_clock::now();
