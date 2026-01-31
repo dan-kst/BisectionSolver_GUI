@@ -1,21 +1,21 @@
-#include "core/SequentialSolver.hpp"
+#include "SolverSequential.hpp"
 #include <vector>
 
 namespace Core::Strategy {
 
 [[nodiscard]] auto
-SequentialSolver::Solve(const std::vector<Logic::Params> &tasks)
+SolverSequential::Solve(const std::vector<Logic::Params> &tasks)
     -> std::vector<Logic::Result> {
   std::vector<Logic::Result> results;
   results.reserve(tasks.size());
 
   for (const auto &task : tasks) {
-    results.push_back(Logic::BisectionSolver::Solve(task));
+    results.push_back(Logic::SolverBisection::Solve(task));
   }
   return results;
 }
 
-[[nodiscard]] auto SequentialSolver::GetType() const -> Strategy::Type {
+[[nodiscard]] auto SolverSequential::GetType() const -> Strategy::Type {
   return Strategy::Type::Sequential;
 }
 

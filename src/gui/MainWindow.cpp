@@ -1,4 +1,4 @@
-#include "gui/MainWindow.hpp"
+#include "MainWindow.hpp"
 
 using json = nlohmann::json;
 
@@ -76,10 +76,10 @@ void MainWindow::OnRunClicked() {
       std::unique_ptr<Core::Strategy::ISolverStrategy> solver;
       switch (selected_idx) {
       case 0:
-        solver = std::make_unique<Core::Strategy::SequentialSolver>();
+        solver = std::make_unique<Core::Strategy::SolverSequential>();
         break;
       case 1:
-        solver = std::make_unique<Core::Strategy::MpiSolver>();
+        solver = std::make_unique<Core::Strategy::SolverMPI>();
         break;
       default:
         throw std::runtime_error("Select solver type.");

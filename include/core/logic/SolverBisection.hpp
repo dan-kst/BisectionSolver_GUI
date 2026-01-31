@@ -19,7 +19,7 @@ struct Result {
 /**
  * @brief Pure mathematical implementation of the Bisection Method.
  */
-class BisectionSolver {
+class SolverBisection {
 private:
   [[nodiscard]] static auto TargetFunction(double arg_x) -> double;
 

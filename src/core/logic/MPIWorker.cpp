@@ -1,7 +1,7 @@
-#include "core/MpiWorker.hpp"
+#include "MPIWorker.hpp"
 
-namespace Core {
-void MpiWorker::Run() {
+namespace Core::Logic {
+void MPIWorker::Run() {
   int rank = 0;
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
@@ -29,7 +29,7 @@ void MpiWorker::Run() {
     std::vector<Logic::Result> results;
     results.reserve(task_count);
     for (const auto &task : tasks) {
-      results.push_back(Logic::BisectionSolver::Solve(task));
+      results.push_back(Logic::SolverBisection::Solve(task));
     }
 
     // Send results back to Master
@@ -39,4 +39,4 @@ void MpiWorker::Run() {
   }
 }
 
-} // namespace Core
+} // namespace Core::Logic

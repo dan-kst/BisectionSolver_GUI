@@ -1,17 +1,17 @@
 #ifndef MPI_SOLVER_HPP
 #define MPI_SOLVER_HPP
 
-#include "core/BisectionSolver.hpp"
-#include "core/ISolverStrategy.hpp"
+#include "SolverBisection.hpp"
+#include "ISolverStrategy.hpp"
 #include <cstddef>
 #include <limits>
 #include <mpi.h>
 #include <stdexcept>
 
 namespace Core::Strategy {
-class MpiSolver : public ISolverStrategy {
+class SolverMPI : public ISolverStrategy {
 public:
-  ~MpiSolver() = default;
+  ~SolverMPI() = default;
 
   [[nodiscard]] auto Solve(const std::vector<Logic::Params> &inputs)
       -> std::vector<Logic::Result> override;

@@ -1,5 +1,5 @@
-#include "core/MpiWorker.hpp"
-#include "gui/MainWindow.hpp"
+#include "MPIWorker.hpp"
+#include "MainWindow.hpp"
 #include <gtkmm.h>
 #include <mpi.h>
 
@@ -33,7 +33,7 @@ auto main(int argc, char *argv[]) -> int {
   } else {
     // --- WORKER PROCESSES (RANK > 0) ---
     // Workers run the blocking loop and exit when signaled
-    Core::MpiWorker::Run();
+    Core::Logic::MPIWorker::Run();
   }
 
   // 2. Cleanup MPI resources

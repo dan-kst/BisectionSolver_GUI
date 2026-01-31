@@ -1,4 +1,4 @@
-#include "core/BisectionSolver.hpp"
+#include "SolverBisection.hpp"
 
 namespace Core::Logic {
 
@@ -7,7 +7,7 @@ namespace Core::Logic {
   return (arg_x * arg_x * arg_x) - arg_x - kConstantTerm;
 }
 
-[[nodiscard]] auto BisectionSolver::Solve(const Logic::Params &task)
+[[nodiscard]] auto SolverBisection::Solve(const Logic::Params &task)
     -> Logic::Result {
   double param_a = task.a;
   double param_b = task.b;

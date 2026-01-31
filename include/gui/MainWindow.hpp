@@ -1,6 +1,6 @@
-#include "core/ISolverStrategy.hpp"
-#include "core/MpiSolver.hpp"
-#include "core/SequentialSolver.hpp"
+#include "ISolverStrategy.hpp"
+#include "SolverMPI.hpp"
+#include "SolverSequential.hpp"
 #include <cstddef>
 #include <fstream>
 #include <gtkmm.h>

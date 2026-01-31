@@ -1,7 +1,7 @@
-#include "core/MpiSolver.hpp"
+#include "SolverMPI.hpp"
 
 namespace Core::Strategy {
-[[nodiscard]] auto MpiSolver::Solve(const std::vector<Logic::Params> &inputs)
+[[nodiscard]] auto SolverMPI::Solve(const std::vector<Logic::Params> &inputs)
     -> std::vector<Logic::Result> {
 
   int world_size = 0;
@@ -57,6 +57,6 @@ namespace Core::Strategy {
   return all_results;
 }
 
-[[nodiscard]] auto MpiSolver::GetType() const -> Type { return Type::MPI; }
+[[nodiscard]] auto SolverMPI::GetType() const -> Type { return Type::MPI; }
 
 } // namespace Core::Strategy

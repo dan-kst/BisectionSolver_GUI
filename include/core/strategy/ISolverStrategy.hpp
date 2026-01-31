@@ -1,7 +1,7 @@
 #ifndef I_SOLVER_STRATEGY_HPP
 #define I_SOLVER_STRATEGY_HPP
 
-#include "core/BisectionSolver.hpp"
+#include "SolverBisection.hpp"
 #include <vector>
 
 namespace Core::Strategy {

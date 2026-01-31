@@ -1,13 +1,13 @@
 #ifndef SEQUENTIAL_SOLVER_HPP
 #define SEQUENTIAL_SOLVER_HPP
 
-#include "core/BisectionSolver.hpp"
-#include "core/ISolverStrategy.hpp"
+#include "SolverBisection.hpp"
+#include "ISolverStrategy.hpp"
 
 namespace Core::Strategy {
-class SequentialSolver : public ISolverStrategy {
+class SolverSequential : public ISolverStrategy {
 public:
-  ~SequentialSolver() = default;
+  ~SolverSequential() = default;
 
   [[nodiscard]] auto Solve(const std::vector<Logic::Params> &tasks)
       -> std::vector<Logic::Result> override;
