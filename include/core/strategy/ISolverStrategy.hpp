@@ -5,7 +5,7 @@
 #include <vector>
 
 namespace Core::Strategy {
-enum class Type { None, Sequential, MPI };
+enum class Type { None, Sequential, MPI, Threaded };
 
 class ISolverStrategy {
 public:

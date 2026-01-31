@@ -24,7 +24,8 @@ MainWindow::MainWindow() {
   add_entry("Task Count:", entry_count_, 3, "1000000");
 
   // Setup Strategy Selector (DropDown)
-  auto strategy_model = Gtk::StringList::create({"Sequential", "MPI Parallel"});
+  auto strategy_model =
+      Gtk::StringList::create({"Sequential", "MPI Parallel", "Threaded"});
   strategy_selector_.set_model(strategy_model);
   strategy_selector_.set_selected(0);
 

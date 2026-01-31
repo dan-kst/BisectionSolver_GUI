@@ -9,6 +9,8 @@ namespace Core::Logic {
     return std::make_unique<SolverMPI>();
   case Type::Sequential:
     return std::make_unique<SolverSequential>();
+  case Type::Threaded:
+    return std::make_unique<SolverThreaded>();
   case Type::None:
     throw std::invalid_argument("Strategy Type was not defined.");
   default:

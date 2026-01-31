@@ -18,6 +18,7 @@ add_library(lab7_logic
     src/core/logic/SolverFactory.cpp
     src/core/strategy/SolverMPI.cpp
     src/core/strategy/SolverSequential.cpp
+    src/core/strategy/SolverThreaded.cpp
 )
 target_include_directories( lab7_logic PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/include/core/logic
