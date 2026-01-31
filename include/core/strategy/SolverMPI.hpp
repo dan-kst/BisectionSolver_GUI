@@ -1,8 +1,8 @@
 #ifndef MPI_SOLVER_HPP
 #define MPI_SOLVER_HPP
 
-#include "SolverBisection.hpp"
 #include "ISolverStrategy.hpp"
+#include "SolverBisection.hpp"
 #include <cstddef>
 #include <limits>
 #include <mpi.h>

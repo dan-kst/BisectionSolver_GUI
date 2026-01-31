@@ -1,8 +1,8 @@
 #ifndef SEQUENTIAL_SOLVER_HPP
 #define SEQUENTIAL_SOLVER_HPP
 
-#include "SolverBisection.hpp"
 #include "ISolverStrategy.hpp"
+#include "SolverBisection.hpp"
 
 namespace Core::Strategy {
 class SolverSequential : public ISolverStrategy {

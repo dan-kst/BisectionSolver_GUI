@@ -65,7 +65,8 @@ void MainWindow::OnRunClicked() {
                                      .epsilon =
                                          std::stod(entry_eps_.get_text())};
     int count = std::stoi(entry_count_.get_text());
-    auto selected_type = static_cast<Core::Strategy::Type>(strategy_selector_.get_selected() + 1);
+    auto selected_type = static_cast<Core::Strategy::Type>(
+        strategy_selector_.get_selected() + 1);
 
     run_button_.set_sensitive(false);
     spinner_.start();
